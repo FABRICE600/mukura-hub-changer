@@ -1,24 +1,2916 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GS Mukura HY - Excellence, Discipline, Unity</title>
-    <meta name="description" content="GS Mukura HY is a secondary school in Huye District, Rwanda, dedicated to quality education, discipline, and holistic student development." />
-    <meta name="author" content="GS Mukura HY" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GS Mukura - Primary & Secondary School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #2c5282;
+            --secondary: #e53e3e;
+            --secondary-dark: #c53030;
+            --secondary-light: #fc8181;
+            --accent: #38a169;
+            --accent-light: #48bb78;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --darker: #1a202c;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
 
-    <meta property="og:title" content="GS Mukura HY - Excellence, Discipline, Unity" />
-    <meta property="og:description" content="GS Mukura HY is a secondary school in Huye District, Rwanda." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+        }
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* School Level Indicators */
+        .school-level-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .primary-badge {
+            background: linear-gradient(135deg, var(--primary), #1a365d);
+            color: white;
+        }
+
+        .secondary-badge {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: white;
+        }
+
+        /* Enhanced Link Styles */
+        a:not(.btn):not(.logo):not(nav a):not(.social-icons a):not(.footer-link) {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+            padding: 2px 0;
+        }
+
+        a:not(.btn):not(.logo):not(nav a):not(.social-icons a):not(.footer-link)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        a:not(.btn):not(.logo):not(nav a):not(.social-icons a):not(.footer-link):hover {
+            color: var(--accent);
+        }
+
+        a:not(.btn):not(.logo):not(nav a):not(.social-icons a):not(.footer-link):hover::after {
+            width: 100%;
+        }
+
+        /* Info Link Styles */
+        .info-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            background: rgba(44, 82, 130, 0.1);
+            border-radius: var(--radius);
+            transition: var(--transition);
+            margin: 5px 0;
+        }
+
+        .info-link:hover {
+            background: rgba(44, 82, 130, 0.2);
+            transform: translateY(-2px);
+            color: var(--accent);
+        }
+
+        .info-link i {
+            font-size: 1.2rem;
+        }
+
+        /* Secondary School Specific Styles */
+        .secondary-link {
+            background: rgba(229, 62, 62, 0.1);
+            color: var(--secondary);
+        }
+
+        .secondary-link:hover {
+            background: rgba(229, 62, 62, 0.2);
+            color: var(--secondary-dark);
+        }
+
+        .secondary-card {
+            border-top: 5px solid var(--secondary);
+        }
+
+        .secondary-section {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+        }
+
+        /* Innovation Section Styles */
+        .innovation-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid #e2e8f0;
+            transition: var(--transition);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .innovation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .innovation-card:hover::before {
+            opacity: 1;
+        }
+
+        .innovation-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .innovation-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .innovation-card:hover .innovation-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Stats Counter */
+        .stats-counter {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            min-width: 150px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .secondary-stat {
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            color: var(--dark);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Enhanced Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #1a365d);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1a365d, var(--primary));
+            box-shadow: 0 5px 15px rgba(44, 82, 130, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--accent), #2f855a);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #2f855a, var(--accent));
+            box-shadow: 0 5px 15px rgba(56, 161, 105, 0.4);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: white;
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, var(--secondary-dark), var(--secondary));
+            box-shadow: 0 5px 15px rgba(229, 62, 62, 0.4);
+        }
+
+        .btn-secondary-school {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: white;
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary-school:hover {
+            background: linear-gradient(135deg, var(--secondary-dark), var(--secondary));
+            box-shadow: 0 5px 15px rgba(229, 62, 62, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Enhanced Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary), #1a365d);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: -5px;
+        }
+
+        .logo-icon {
+            color: var(--accent);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        .logo-icon-secondary {
+            color: var(--secondary-light);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+            margin-left: 20px;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            display: none;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #2f855a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .user-avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Enhanced Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+            overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: modalSlideUp 0.5s ease forwards;
+        }
+
+        @keyframes modalSlideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), #1a365d);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .close-modal {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        /* Enhanced Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Enhanced User Type Selector */
+        .user-type-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .user-type-btn {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: var(--radius);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .user-type-btn:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .user-type-btn.active {
+            border-color: var(--primary);
+            background: rgba(44, 82, 130, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(44, 82, 130, 0.1);
+        }
+
+        .user-type-btn i {
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 82, 130, 0.85), rgba(44, 82, 130, 0.95)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, transparent 20%, rgba(0,0,0,0.4) 100%);
+        }
+
+        .hero > .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1s ease 0.5s both;
+            opacity: 0.9;
+        }
+
+        /* Moving Text Animation */
+        .moving-text-container {
+            margin: 2rem 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            gap: 15px;
+        }
+
+        .moving-words {
+            display: inline-block;
+            height: 80px;
+            overflow: hidden;
+            position: relative;
+            width: 400px;
+            text-align: left;
+        }
+
+        .moving-words span {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            animation: wordCycle 12s linear infinite;
+            padding: 0 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .moving-words span:nth-child(1) { color: #ff6b6b; }
+        .moving-words span:nth-child(2) { color: #4ecdc4; }
+        .moving-words span:nth-child(3) { color: #ffd166; }
+
+        @keyframes wordCycle {
+            0% { opacity: 0; transform: translateY(30px); }
+            5% { opacity: 1; transform: translateY(0); }
+            30% { opacity: 1; transform: translateY(0); }
+            35% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 0; transform: translateY(-30px); }
+        }
+
+        .moving-words span:nth-child(2) { animation-delay: 4s; }
+        .moving-words span:nth-child(3) { animation-delay: 8s; }
+
+        /* Enhanced Sections */
+        section {
+            padding: 5rem 0;
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+            font-size: 2.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 15px auto;
+            border-radius: 3px;
+        }
+
+        .secondary-title::after {
+            background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+        }
+
+        /* New Information Section Styles */
+        .info-section {
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 2px solid #e2e8f0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-item h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-item h3 i {
+            color: var(--accent);
+        }
+
+        /* Innovation Section */
+        .innovation-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Student Gallery */
+        .student-gallery {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            height: 300px;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(44, 82, 130, 0.95), transparent);
+            color: white;
+            padding: 25px 20px 15px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .photo-item:hover .photo-caption {
+            transform: translateY(0);
+        }
+
+        /* Enhanced Cards */
+        .feature-card, .program-card, .staff-card, .info-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .feature-card:hover, .program-card:hover, .staff-card:hover, .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            text-align: center;
+            border-top: 5px solid var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .program-card {
+            height: 100%;
+        }
+
+        .program-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
+        }
+
+        .program-card:hover .program-img {
+            transform: scale(1.1);
+        }
+
+        .program-content {
+            padding: 1.8rem;
+        }
+
+        .staff-card {
+            text-align: center;
+        }
+
+        .staff-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .staff-content {
+            padding: 1.8rem;
+        }
+
+        /* School Level Tabs */
+        .school-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .school-tab {
+            padding: 12px 30px;
+            border: 2px solid var(--primary);
+            background: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .school-tab:hover {
+            transform: translateY(-2px);
+        }
+
+        .school-tab.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(44, 82, 130, 0.3);
+        }
+
+        .school-tab-secondary {
+            border-color: var(--secondary);
+        }
+
+        .school-tab-secondary.active {
+            background: var(--secondary);
+        }
+
+        /* Enhanced Contact Form */
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary), #1a365d);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info i {
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark), #1a202c);
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+            display: inline-block;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+            transform: translateX(5px);
+            padding-left: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .moving-text-container {
+                font-size: 1.6rem;
+            }
+            
+            .moving-words {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                display: none;
+                margin-top: 1rem;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav li {
+                width: 100%;
+            }
+
+            nav a {
+                display: block;
+                padding: 12px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .auth-buttons {
+                flex-direction: column;
+                width: 100%;
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .hero {
+                padding: 6rem 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .moving-text-container {
+                flex-direction: column;
+                height: auto;
+                gap: 10px;
+                font-size: 1.4rem;
+            }
+
+            .moving-words {
+                width: 100%;
+                height: 60px;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-container,
+            .info-grid,
+            .innovation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid,
+            .programs-grid,
+            .staff-grid,
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .user-type-selector {
+                flex-direction: column;
+            }
+
+            .user-type-btn {
+                min-width: 100%;
+            }
+
+            .dashboard-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn-group .btn {
+                width: 100%;
+            }
+
+            .stats-counter {
+                gap: 1rem;
+            }
+
+            .stat-item {
+                min-width: 120px;
+                padding: 1rem;
+            }
+
+            .school-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .school-tab {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .moving-text-container {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-graduation-cap logo-icon"></i>
+                <div>
+                    <h1>GS Mukura</h1>
+                    <p class="logo-subtitle">Primary & Secondary School</p>
+                </div>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" title="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#schools" class="nav-link">Schools</a></li>
+                    <li><a href="#information" class="nav-link">Information</a></li>
+                    <li><a href="#students" class="nav-link">Students</a></li>
+                    <li><a href="#innovation" class="nav-link">Innovation</a></li>
+                    <li><a href="#programs" class="nav-link">Programs</a></li>
+                    <li><a href="#staff" class="nav-link">Staff</a></li>
+                    <li><a href="#admissions" class="nav-link">Admissions</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    
+                    <!-- Authentication Buttons (Visible when logged out) -->
+                    <div class="auth-buttons" id="authButtons">
+                        <li><button class="btn btn-outline btn-small" id="openLogin">Login</button></li>
+                        <li><button class="btn btn-secondary btn-small" id="openRegister">Register</button></li>
+                    </div>
+
+                    <!-- User Menu (Visible when logged in) -->
+                    <div class="user-menu" id="userMenu">
+                        <div class="user-avatar" id="userAvatar" title="User Profile">U</div>
+                        <div class="user-info">
+                            <span id="userName" style="font-size: 0.9rem;">User</span>
+                            <button class="btn btn-danger btn-small" id="logoutBtn">Logout</button>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to Your Account</h2>
+                <button class="close-modal" id="closeLogin" title="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required placeholder="Enter your password">
+                    </div>
+                    <div class="form-group">
+                        <label for="userRole">I am a:</label>
+                        <select id="userRole" required>
+                            <option value="">Select role</option>
+                            <option value="parent">Parent/Guardian</option>
+                            <option value="student-primary">Primary Student</option>
+                            <option value="student-secondary">Secondary Student</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="rememberMe"> Remember me
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                </form>
+                <div class="form-footer" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #eee;">
+                    <p>Don't have an account? <a href="#" id="switchToRegister" style="color: var(--primary); text-decoration: none; font-weight: 500;">Register here</a></p>
+                    <p><a href="#" id="forgotPassword" style="color: var(--primary); text-decoration: none; font-weight: 500;">Forgot password?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Account</h2>
+                <button class="close-modal" id="closeRegister" title="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="user-type-selector">
+                        <div class="user-type-btn active" data-role="parent">
+                            <i class="fas fa-users"></i>
+                            <span>Parent</span>
+                        </div>
+                        <div class="user-type-btn" data-role="student-primary">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Primary Student</span>
+                        </div>
+                        <div class="user-type-btn" data-role="student-secondary">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Secondary Student</span>
+                        </div>
+                        <div class="user-type-btn" data-role="teacher">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Teacher</span>
+                        </div>
+                    </div>
+                    
+                    <input type="hidden" id="selectedRole" value="parent">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" required minlength="6">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional fields for primary students -->
+                    <div id="primaryStudentFields" style="display: none;">
+                        <div class="form-group">
+                            <label for="studentGradePrimary">Grade/Class</label>
+                            <select id="studentGradePrimary">
+                                <option value="p1">Primary 1</option>
+                                <option value="p2">Primary 2</option>
+                                <option value="p3">Primary 3</option>
+                                <option value="p4">Primary 4</option>
+                                <option value="p5">Primary 5</option>
+                                <option value="p6">Primary 6</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentIdPrimary">Student ID (If available)</label>
+                            <input type="text" id="studentIdPrimary">
+                        </div>
+                    </div>
+                    
+                    <!-- Additional fields for secondary students -->
+                    <div id="secondaryStudentFields" style="display: none;">
+                        <div class="form-group">
+                            <label for="studentGradeSecondary">Form/Year</label>
+                            <select id="studentGradeSecondary">
+                                <option value="s1">Form 1</option>
+                                <option value="s2">Form 2</option>
+                                <option value="s3">Form 3</option>
+                                <option value="s4">Form 4</option>
+                                <option value="s5">Form 5</option>
+                                <option value="s6">Form 6</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentStream">Stream/Combination</label>
+                            <select id="studentStream">
+                                <option value="arts">Arts</option>
+                                <option value="sciences">Sciences</option>
+                                <option value="business">Business Studies</option>
+                                <option value="technical">Technical</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentIdSecondary">Student ID (If available)</label>
+                            <input type="text" id="studentIdSecondary">
+                        </div>
+                    </div>
+                    
+                    <!-- Additional fields for parents -->
+                    <div id="parentFields">
+                        <div class="form-group">
+                            <label for="childName">Child's Name</label>
+                            <input type="text" id="childName">
+                        </div>
+                        <div class="form-group">
+                            <label for="childSchool">Child's School Level</label>
+                            <select id="childSchool">
+                                <option value="">Select school level</option>
+                                <option value="primary">Primary School</option>
+                                <option value="secondary">Secondary School</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="childGradeGroup">
+                            <label for="childGrade">Child's Grade/Form</label>
+                            <select id="childGrade">
+                                <option value="">Select grade</option>
+                                <!-- Options will be populated based on school level -->
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="terms" required>
+                            I agree to the <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 500;" id="termsLink">Terms & Conditions</a> and <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 500;" id="privacyLink">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                </form>
+                <div class="form-footer" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #eee;">
+                    <p>Already have an account? <a href="#" id="switchToLogin" style="color: var(--primary); text-decoration: none; font-weight: 500;">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgotPasswordModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Reset Password</h2>
+                <button class="close-modal" id="closeForgot" title="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="forgotPasswordForm">
+                    <div class="form-group">
+                        <label for="resetEmail">Enter your email address</label>
+                        <input type="email" id="resetEmail" required placeholder="Your registered email">
+                        <p style="margin-top: 5px; color: #666; font-size: 0.9rem;">
+                            We'll send you a link to reset your password
+                        </p>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Send Reset Link</button>
+                </form>
+                <div class="form-footer" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #eee;">
+                    <p><a href="#" id="backToLogin" style="color: var(--primary); text-decoration: none; font-weight: 500;">Back to login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Dashboard (Visible when logged in) -->
+        <div id="dashboard" style="display: none;">
+            <div class="dashboard-header" style="background: linear-gradient(135deg, var(--primary), #1a365d); color: white; padding: 2rem 0; text-align: center; margin-bottom: 2rem;">
+                <div class="container">
+                    <h2>Welcome, <span id="dashboardUserName">User</span>!</h2>
+                    <p>Access your personalized dashboard</p>
+                </div>
+            </div>
+            
+            <div class="container">
+                <nav class="dashboard-nav" style="background: white; box-shadow: var(--shadow); border-radius: var(--radius); padding: 1rem; margin-bottom: 2rem;">
+                    <ul style="display: flex; list-style: none; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <li><button class="btn btn-outline btn-small dashboard-link active" data-target="dashboard-home">Overview</button></li>
+                        <li><button class="btn btn-outline btn-small dashboard-link" data-target="dashboard-profile">Profile</button></li>
+                        <li><button class="btn btn-outline btn-small dashboard-link" data-target="dashboard-academics">Academics</button></li>
+                        <li><button class="btn btn-outline btn-small dashboard-link" data-target="dashboard-attendance">Attendance</button></li>
+                        <li><button class="btn btn-outline btn-small dashboard-link" data-target="dashboard-messages">Messages</button></li>
+                        <li><button class="btn btn-outline btn-small dashboard-link" data-target="dashboard-events">Events</button></li>
+                        <li><button class="btn btn-secondary btn-small" id="backToWebsite">Back to Website</button></li>
+                    </ul>
+                </nav>
+                
+                <!-- Dashboard Content -->
+                <div id="dashboard-home" class="dashboard-content active" style="display: block; padding: 2rem; background: white; border-radius: var(--radius); box-shadow: var(--shadow);">
+                    <h3>Dashboard Overview</h3>
+                    <p>Welcome to your personalized dashboard. Here you can access all school-related information and services.</p>
+                    
+                    <div class="info-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                        <div class="info-card">
+                            <h3><i class="fas fa-user-circle"></i> Profile Information</h3>
+                            <p>View and update your personal information</p>
+                            <button class="btn btn-primary btn-small" style="margin-top: 10px;" onclick="showSection('dashboard-profile')">View Profile</button>
+                        </div>
+                        <div class="info-card">
+                            <h3><i class="fas fa-book-open"></i> Academic Records</h3>
+                            <p>Check grades, assignments, and reports</p>
+                            <button class="btn btn-primary btn-small" style="margin-top: 10px;" onclick="showSection('dashboard-academics')">View Academics</button>
+                        </div>
+                        <div class="info-card">
+                            <h3><i class="fas fa-calendar-alt"></i> School Calendar</h3>
+                            <p>View upcoming events and holidays</p>
+                            <button class="btn btn-primary btn-small" style="margin-top: 10px;" onclick="showSection('dashboard-events')">View Calendar</button>
+                        </div>
+                        <div class="info-card">
+                            <h3><i class="fas fa-envelope"></i> Messages</h3>
+                            <p>Communicate with teachers and staff</p>
+                            <button class="btn btn-primary btn-small" style="margin-top: 10px;" onclick="showSection('dashboard-messages')">View Messages</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="dashboard-profile" class="dashboard-content" style="display: none; padding: 2rem; background: white; border-radius: var(--radius); box-shadow: var(--shadow);">
+                    <h3>My Profile</h3>
+                    <div id="profileContent">
+                        <p>Profile information will be loaded here...</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="showSection('dashboard-home')" style="margin-top: 20px;">Back to Overview</button>
+                </div>
+                
+                <div id="dashboard-academics" class="dashboard-content" style="display: none; padding: 2rem; background: white; border-radius: var(--radius); box-shadow: var(--shadow);">
+                    <h3>Academic Information</h3>
+                    <div id="academicsContent">
+                        <p>Academic records will be displayed here...</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="showSection('dashboard-home')" style="margin-top: 20px;">Back to Overview</button>
+                </div>
+                
+                <div id="dashboard-attendance" class="dashboard-content" style="display: none; padding: 2rem; background: white; border-radius: var(--radius); box-shadow: var(--shadow);">
+                    <h3>Attendance Records</h3>
+                    <div id="attendanceContent">
+                        <p>Attendance information will be shown here...</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="showSection('dashboard-home')" style="margin-top: 20px;">Back to Overview</button>
+                </div>
+                
+                <div id="dashboard-messages" class="dashboard-content" style="display: none; padding: 2rem; background: white; border-radius: var(--radius); box-shadow: var(--shadow);">
+                    <h3>Messages</h3>
+                    <div id="messagesContent">
+                        <p>Your messages will appear here...</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="showSection('dashboard-home')" style="margin-top: 20px;">Back to Overview</button>
+                </div>
+                
+                <div id="dashboard-events" class="dashboard-content" style="display: none; padding: 2rem; background: white; border-radius: var(--radius); box-shadow: var(--shadow);">
+                    <h3>School Events</h3>
+                    <div id="eventsContent">
+                        <p>Upcoming events will be listed here...</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="showSection('dashboard-home')" style="margin-top: 20px;">Back to Overview</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Website Content -->
+        <div id="mainContent">
+            <!-- Hero Section -->
+            <section class="hero" id="home">
+                <div class="container">
+                    <h2>Welcome to GS Mukura</h2>
+                    <p style="font-size: 1.5rem; margin-bottom: 1rem;">Primary & Secondary School</p>
+                    
+                    <div class="moving-text-container">
+                        <span>We nurture</span>
+                        <div class="moving-words">
+                            <span>Future Leaders</span>
+                            <span>Creative Minds</span>
+                            <span>Global Citizens</span>
+                        </div>
+                    </div>
+                    
+                    <p>Providing quality education and nurturing young minds for a brighter future since 1995. Our mission is to develop well-rounded individuals through academic excellence and moral values.</p>
+                    
+                    <!-- School Statistics -->
+                    <div class="stats-counter">
+                        <div class="stat-item">
+                            <span class="stat-number" id="statTotalStudents">1200</span>
+                            <span class="stat-label">Total Students</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="statPrimary">850</span>
+                            <span class="stat-label">Primary</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number secondary-stat" id="statSecondary">350</span>
+                            <span class="stat-label">Secondary</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="statTeachers">65</span>
+                            <span class="stat-label">Teachers</span>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-secondary-school btn-large" id="heroSecondary">Secondary School</button>
+                        <button class="btn btn-secondary btn-large" id="heroLogin">Parent Login</button>
+                        <button class="btn btn-primary btn-large" id="heroRegister">Register Now</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="container">
+                <h2 class="section-title">About Our School</h2>
+                <div class="about-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                    <div class="about-text">
+                        <h3>Excellence in Education Since 1995</h3>
+                        <p>GS Mukura is a leading educational institution offering both Primary and Secondary education. We serve students from P1 to Form 6, providing a comprehensive curriculum that meets national educational standards while fostering individual growth.</p>
+                        <p>Our institution is recognized for its commitment to academic excellence, character development, and community engagement. We believe in educating the whole child - mind, body, and spirit.</p>
+                        <ul style="margin: 1.5rem 0; list-style: none;">
+                            <li style="margin-bottom: 10px;"><i class="fas fa-calendar-alt" style="color: var(--accent); margin-right: 10px;"></i> Established: 1995</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-user-graduate" style="color: var(--accent); margin-right: 10px;"></i> Primary Students: 850+</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-user-graduate" style="color: var(--secondary); margin-right: 10px;"></i> Secondary Students: 350+</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-chalkboard-teacher" style="color: var(--accent); margin-right: 10px;"></i> Teachers: 65+ qualified staff</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-building" style="color: var(--accent); margin-right: 10px;"></i> Facilities: Modern classrooms, science labs, library, computer labs, sports facilities</li>
+                        </ul>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="scrollToSection('schools')">Our Schools</button>
+                            <button class="btn btn-secondary-school" onclick="scrollToSection('programs')">View Programs</button>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="photo-item">
+                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="GS Mukura School Building">
+                            <div class="photo-caption">Our School Campus</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schools Section -->
+            <section id="schools" class="secondary-section">
+                <div class="container">
+                    <h2 class="section-title">Our Schools</h2>
+                    
+                    <div class="school-tabs">
+                        <button class="school-tab active" data-school="primary">Primary School</button>
+                        <button class="school-tab school-tab-secondary" data-school="secondary">Secondary School</button>
+                    </div>
+                    
+                    <!-- Primary School Content -->
+                    <div id="primary-school" class="school-content active" style="display: block;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                            <div>
+                                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Primary School (P1-P6)</h3>
+                                <p>Our Primary School provides a strong foundation for lifelong learning. We focus on developing core literacy and numeracy skills while nurturing creativity and social development.</p>
+                                <ul style="margin: 1.5rem 0; list-style: none;">
+                                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Ages 6-12 years</li>
+                                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Comprehensive primary curriculum</li>
+                                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Extracurricular activities</li>
+                                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Preparation for secondary education</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" onclick="scrollToSection('programs')">View Primary Programs</button>
+                                    <button class="btn btn-outline" style="color: var(--primary); border-color: var(--primary);" onclick="scrollToSection('admissions')">Primary Admissions</button>
+                                </div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Primary School Students">
+                                <div class="photo-caption">Primary School Learning</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Secondary School Content -->
+                    <div id="secondary-school" class="school-content" style="display: none;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                            <div>
+                                <h3 style="color: var(--secondary); margin-bottom: 1.5rem;">Secondary School (Form 1-6)</h3>
+                                <p>Our Secondary School offers advanced academic programs with specialized streams in Sciences, Arts, Business, and Technical studies. We prepare students for national examinations and higher education.</p>
+                                <ul style="margin: 1.5rem 0; list-style: none;">
+                                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Ages 13-19 years</li>
+                                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Science, Arts, Business & Technical streams</li>
+                                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Advanced science laboratories</li>
+                                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> University preparation programs</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary-school" onclick="showSecondaryPrograms()">View Secondary Programs</button>
+                                    <button class="btn btn-outline" style="color: var(--secondary); border-color: var(--secondary);" onclick="scrollToSection('admissions')">Secondary Admissions</button>
+                                </div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Secondary School Students">
+                                <div class="photo-caption">Secondary School Science Lab</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Information Section -->
+            <section id="information" class="info-section">
+                <div class="container">
+                    <h2 class="section-title">School Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h3><i class="fas fa-bell"></i> Announcements</h3>
+                            <p><strong>Important Updates:</strong></p>
+                            <ul>
+                                <li>Term 2 begins May 6, 2024</li>
+                                <li>Secondary School Science Fair: May 20</li>
+                                <li>Parent-Teacher meetings: May 15-17</li>
+                                <li>Sports Day: June 10, 2024</li>
+                            </ul>
+                            <a href="#" class="info-link">
+                                <i class="fas fa-download"></i>
+                                Download School Calendar
+                            </a>
+                        </div>
+                        <div class="info-item">
+                            <h3><i class="fas fa-file-alt"></i> Resources</h3>
+                            <p>Access important school documents and resources:</p>
+                            <a href="#" class="info-link">
+                                <i class="fas fa-book"></i>
+                                School Handbook
+                            </a>
+                            <a href="#" class="info-link secondary-link">
+                                <i class="fas fa-graduation-cap"></i>
+                                Secondary Curriculum
+                            </a>
+                            <a href="#" class="info-link">
+                                <i class="fas fa-utensils"></i>
+                                Lunch Menu
+                            </a>
+                        </div>
+                        <div class="info-item">
+                            <h3><i class="fas fa-newspaper"></i> News & Updates</h3>
+                            <p><strong>Latest News:</strong></p>
+                            <ul>
+                                <li>Our Secondary students won 3 awards in National Science Fair</li>
+                                <li>New science lab inaugurated for Secondary School</li>
+                                <li>Primary School renovation project completed</li>
+                            </ul>
+                            <a href="#" class="info-link">
+                                <i class="fas fa-newspaper"></i>
+                                View All News
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Student Gallery -->
+            <section id="students" class="student-gallery">
+                <div class="container">
+                    <h2 class="section-title">Our Students in Action</h2>
+                    <p style="text-align: center; margin-bottom: 2rem; font-size: 1.2rem; color: var(--dark);">Capturing moments of learning, growth, and achievement across both schools</p>
+                    <div class="photo-gallery">
+                        <div class="photo-item">
+                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Primary students learning">
+                            <div class="photo-caption">Primary School Learning</div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Secondary science lab">
+                            <div class="photo-caption">Secondary Science Lab</div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Art class">
+                            <div class="photo-caption">Creative Art Sessions</div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sports activities">
+                            <div class="photo-caption">Sports & Athletics</div>
+                        </div>
+                    </div>
+                    <div class="btn-group" style="justify-content: center; margin-top: 3rem;">
+                        <button class="btn btn-primary btn-large" onclick="scrollToSection('programs')">View Programs</button>
+                        <button class="btn btn-secondary-school btn-large" onclick="scrollToSection('innovation')">View Innovation</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Innovation Section -->
+            <section id="innovation" class="innovation-section">
+                <div class="container">
+                    <h2 class="section-title">Innovation & Technology</h2>
+                    <div class="innovation-grid">
+                        <div class="innovation-card">
+                            <i class="fas fa-laptop-code innovation-icon"></i>
+                            <h3>Smart Classrooms</h3>
+                            <p>Equipped with interactive whiteboards, digital projectors, and high-speed internet for enhanced learning experiences across both schools.</p>
+                            <a href="#" class="info-link" style="margin-top: 1rem;">
+                                <i class="fas fa-video"></i>
+                                View Virtual Tour
+                            </a>
+                        </div>
+                        <div class="innovation-card">
+                            <i class="fas fa-robot innovation-icon"></i>
+                            <h3>STEM Centers</h3>
+                            <p>State-of-the-art Science, Technology, Engineering, and Mathematics centers with robotics kits, 3D printers, and advanced lab equipment.</p>
+                            <a href="#" class="info-link secondary-link" style="margin-top: 1rem;">
+                                <i class="fas fa-flask"></i>
+                                See Projects
+                            </a>
+                        </div>
+                        <div class="innovation-card">
+                            <i class="fas fa-tablet-alt innovation-icon"></i>
+                            <h3>Digital Resources</h3>
+                            <p>Access to thousands of e-books, educational apps, online courses, and research databases for both Primary and Secondary students.</p>
+                            <a href="#" class="info-link" style="margin-top: 1rem;">
+                                <i class="fas fa-book-reader"></i>
+                                Access Library
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Programs Section -->
+            <section id="programs" class="container">
+                <h2 class="section-title">Academic Programs</h2>
+                
+                <div class="school-tabs" style="margin-bottom: 2rem;">
+                    <button class="school-tab active" data-program="primary">Primary Programs</button>
+                    <button class="school-tab school-tab-secondary" data-program="secondary">Secondary Programs</button>
+                </div>
+                
+                <!-- Primary Programs -->
+                <div id="primary-programs" class="programs-content active">
+                    <div class="programs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div class="program-card">
+                            <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); height: 200px; background-size: cover; background-position: center;"></div>
+                            <div class="program-content">
+                                <h3>Lower Primary (P1-P3)</h3>
+                                <p>Foundation years focusing on literacy, numeracy, and social skills development through interactive learning.</p>
+                                <a href="#" class="info-link" style="margin-top: 15px;">
+                                    <i class="fas fa-info-circle"></i>
+                                    Detailed Curriculum
+                                </a>
+                            </div>
+                        </div>
+                        <div class="program-card">
+                            <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); height: 200px; background-size: cover; background-position: center;"></div>
+                            <div class="program-content">
+                                <h3>Upper Primary (P4-P6)</h3>
+                                <p>Advanced curriculum with subject specialization, critical thinking, and preparation for secondary education.</p>
+                                <a href="#" class="info-link" style="margin-top: 15px;">
+                                    <i class="fas fa-info-circle"></i>
+                                    Detailed Curriculum
+                                </a>
+                            </div>
+                        </div>
+                        <div class="program-card">
+                            <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); height: 200px; background-size: cover; background-position: center;"></div>
+                            <div class="program-content">
+                                <h3>Extracurricular Activities</h3>
+                                <p>Sports, music, arts, clubs, and community service programs to develop well-rounded individuals.</p>
+                                <a href="#" class="info-link" style="margin-top: 15px;">
+                                    <i class="fas fa-info-circle"></i>
+                                    View Activities
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Secondary Programs -->
+                <div id="secondary-programs" class="programs-content" style="display: none;">
+                    <div class="programs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div class="program-card secondary-card">
+                            <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); height: 200px; background-size: cover; background-position: center;"></div>
+                            <div class="program-content">
+                                <h3>Science Stream</h3>
+                                <p>Physics, Chemistry, Biology, Mathematics, and Computer Science. Preparation for engineering and medical fields.</p>
+                                <a href="#" class="info-link secondary-link" style="margin-top: 15px;">
+                                    <i class="fas fa-microscope"></i>
+                                    View Subjects
+                                </a>
+                            </div>
+                        </div>
+                        <div class="program-card secondary-card">
+                            <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); height: 200px; background-size: cover; background-position: center;"></div>
+                            <div class="program-content">
+                                <h3>Arts & Humanities</h3>
+                                <p>History, Geography, Languages, Literature, and Social Sciences. Development of critical thinking and communication skills.</p>
+                                <a href="#" class="info-link secondary-link" style="margin-top: 15px;">
+                                    <i class="fas fa-paint-brush"></i>
+                                    View Subjects
+                                </a>
+                            </div>
+                        </div>
+                        <div class="program-card secondary-card">
+                            <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); height: 200px; background-size: cover; background-position: center;"></div>
+                            <div class="program-content">
+                                <h3>Business & Technical</h3>
+                                <p>Commerce, Accounts, Entrepreneurship, and Technical subjects. Preparation for business and technical careers.</p>
+                                <a href="#" class="info-link secondary-link" style="margin-top: 15px;">
+                                    <i class="fas fa-chart-line"></i>
+                                    View Subjects
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Staff Section -->
+            <section id="staff" class="container">
+                <h2 class="section-title">School Leadership</h2>
+                <div class="staff-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div class="staff-card">
+                        <div class="staff-img" style="background-image: url('https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); height: 200px; background-size: cover; background-position: center;"></div>
+                        <div class="staff-content">
+                            <h3>Mr. Jean Claude</h3>
+                            <p><strong>Head Teacher</strong></p>
+                            <p>MA in Education, 15+ years experience</p>
+                            <a href="#contact" class="info-link" style="margin-top: 15px;">
+                                <i class="fas fa-envelope"></i>
+                                Contact
+                            </a>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <div class="staff-img" style="background-image: url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); height: 200px; background-size: cover; background-position: center;"></div>
+                        <div class="staff-content">
+                            <h3>Mrs. Marie Uwimana</h3>
+                            <p><strong>Deputy Head (Primary)</strong></p>
+                            <p>B.Ed in Sciences, 12 years experience</p>
+                            <a href="#contact" class="info-link" style="margin-top: 15px;">
+                                <i class="fas fa-envelope"></i>
+                                Contact
+                            </a>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <div class="staff-img" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); height: 200px; background-size: cover; background-position: center;"></div>
+                        <div class="staff-content">
+                            <h3>Mr. David Ndayisaba</h3>
+                            <p><strong>Head of Secondary</strong></p>
+                            <p>M.Ed in Curriculum Development</p>
+                            <a href="#contact" class="info-link secondary-link" style="margin-top: 15px;">
+                                <i class="fas fa-envelope"></i>
+                                Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admissions Section -->
+            <section id="admissions" class="features" style="background-color: var(--light);">
+                <div class="container">
+                    <h2 class="section-title">Admissions Process</h2>
+                    
+                    <div class="school-tabs" style="margin-bottom: 2rem;">
+                        <button class="school-tab active" data-admission="primary">Primary Admissions</button>
+                        <button class="school-tab school-tab-secondary" data-admission="secondary">Secondary Admissions</button>
+                    </div>
+                    
+                    <!-- Primary Admissions -->
+                    <div id="primary-admissions" class="admissions-content active">
+                        <div class="about-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                            <div>
+                                <h3>Primary School Admissions</h3>
+                                <ol style="margin: 1.5rem 0; padding-left: 1.5rem;">
+                                    <li style="margin-bottom: 10px;">Complete the online application form</li>
+                                    <li style="margin-bottom: 10px;">Submit required documents (birth certificate, previous reports)</li>
+                                    <li style="margin-bottom: 10px;">Attend an assessment interview</li>
+                                    <li style="margin-bottom: 10px;">Receive admission decision within 2 weeks</li>
+                                    <li style="margin-bottom: 10px;">Complete enrollment and payment process</li>
+                                </ol>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary" onclick="scrollToSection('contact')">Request Application</button>
+                                    <button class="btn btn-primary" id="applyPrimaryBtn">Apply for Primary</button>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Primary Term Dates 2024</h3>
+                                <ul style="margin: 1.5rem 0; list-style: none;">
+                                    <li style="margin-bottom: 10px; padding: 10px; background: white; border-radius: var(--radius);"><strong>Term 1:</strong> January 15 - April 5</li>
+                                    <li style="margin-bottom: 10px; padding: 10px; background: white; border-radius: var(--radius);"><strong>Term 2:</strong> May 6 - August 2</li>
+                                    <li style="margin-bottom: 10px; padding: 10px; background: white; border-radius: var(--radius);"><strong>Term 3:</strong> September 2 - November 29</li>
+                                </ul>
+                                <h4>Primary School Hours</h4>
+                                <p>Monday - Friday: 7:30 AM - 3:00 PM</p>
+                                <p>Extra-curricular: 3:00 PM - 4:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Secondary Admissions -->
+                    <div id="secondary-admissions" class="admissions-content" style="display: none;">
+                        <div class="about-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                            <div>
+                                <h3 style="color: var(--secondary);">Secondary School Admissions</h3>
+                                <ol style="margin: 1.5rem 0; padding-left: 1.5rem;">
+                                    <li style="margin-bottom: 10px;">Complete the secondary school application form</li>
+                                    <li style="margin-bottom: 10px;">Submit P6 leaving certificate and reports</li>
+                                    <li style="margin-bottom: 10px;">Take entrance examination in Mathematics and English</li>
+                                    <li style="margin-bottom: 10px;">Interview with Head of Secondary</li>
+                                    <li style="margin-bottom: 10px;">Receive admission decision within 3 weeks</li>
+                                    <li style="margin-bottom: 10px;">Select stream (Sciences, Arts, Business, Technical)</li>
+                                </ol>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary" onclick="scrollToSection('contact')">Request Information</button>
+                                    <button class="btn btn-secondary-school" id="applySecondaryBtn">Apply for Secondary</button>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 style="color: var(--secondary);">Secondary Term Dates 2024</h3>
+                                <ul style="margin: 1.5rem 0; list-style: none;">
+                                    <li style="margin-bottom: 10px; padding: 10px; background: white; border-radius: var(--radius); border-left: 4px solid var(--secondary);"><strong>Term 1:</strong> January 8 - April 12</li>
+                                    <li style="margin-bottom: 10px; padding: 10px; background: white; border-radius: var(--radius); border-left: 4px solid var(--secondary);"><strong>Term 2:</strong> May 6 - August 9</li>
+                                    <li style="margin-bottom: 10px; padding: 10px; background: white; border-radius: var(--radius); border-left: 4px solid var(--secondary);"><strong>Term 3:</strong> September 2 - December 6</li>
+                                </ul>
+                                <h4 style="color: var(--secondary);">Secondary School Hours</h4>
+                                <p>Monday - Friday: 7:30 AM - 4:00 PM</p>
+                                <p>Study Sessions: 4:00 PM - 5:30 PM (Optional)</p>
+                                <p>Weekend Prep: Saturday 8:00 AM - 12:00 PM (Form 4-6)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> GS Mukura, Mukura Sector, Rwamagana District, Rwanda</p>
+                        <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +250 788 123 456 (General)</p>
+                        <p><i class="fas fa-phone"></i> <strong>Secondary Office:</strong> +250 788 123 457</p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:info@gsmukura.rw" style="color: white; text-decoration: underline;">info@gsmukura.rw</a></p>
+                        <p><i class="fas fa-envelope"></i> <strong>Secondary:</strong> <a href="mailto:secondary@gsmukura.rw" style="color: white; text-decoration: underline;">secondary@gsmukura.rw</a></p>
+                        <p><i class="fas fa-clock"></i> <strong>Office Hours:</strong> 7:00 AM - 5:00 PM (Weekdays)</p>
+                        
+                        <div class="social-icons">
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <form id="contactForm" style="background: white; padding: 2rem; border-radius: 10px; box-shadow: var(--shadow);">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="schoolLevel">School Level Interested In</label>
+                            <select id="schoolLevel">
+                                <option value="primary">Primary School</option>
+                                <option value="secondary">Secondary School</option>
+                                <option value="both">Both</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject">
+                                <option value="admission">Admission Inquiry</option>
+                                <option value="general">General Information</option>
+                                <option value="feedback">Feedback/Suggestion</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>GS Mukura</h3>
+                    <p>Providing quality Primary and Secondary education since 1995. Committed to nurturing future leaders through excellence in teaching and learning.</p>
+                    <div class="btn-group" style="margin-top: 1rem;">
+                        <button class="btn btn-outline btn-small" id="footerLogin">Login</button>
+                        <button class="btn btn-secondary btn-small" id="footerRegister">Register</button>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Schools</h3>
+                    <ul>
+                        <li><a href="#schools" class="footer-link">Primary School (P1-P6)</a></li>
+                        <li><a href="#schools" class="footer-link">Secondary School (Form 1-6)</a></li>
+                        <li><a href="#programs" class="footer-link">Academic Programs</a></li>
+                        <li><a href="#admissions" class="footer-link">Admissions</a></li>
+                        <li><a href="#staff" class="footer-link">School Leadership</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#" class="footer-link">School Calendar</a></li>
+                        <li><a href="#" class="footer-link" id="footerPortalBtn">Parent Portal</a></li>
+                        <li><a href="#" class="footer-link">Student Portal</a></li>
+                        <li><a href="#" class="footer-link">News & Events</a></li>
+                        <li><a href="#" class="footer-link">Photo Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on school events and announcements.</p>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email" style="margin-top: 10px; width: 100%; padding: 12px; border-radius: var(--radius); border: 1px solid #ddd;">
+                        <button class="btn btn-primary btn-full" style="margin-top: 10px;" id="subscribeBtn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear">2024</span> GS Mukura Primary & Secondary School. All rights reserved.</p>
+                <p>Website developed with modern front-end technologies</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // State Management
+        let currentUser = null;
+        const users = JSON.parse(localStorage.getItem('gsmukura_users')) || [];
+
+        // DOM Elements
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+        const authButtons = document.getElementById('authButtons');
+        const userMenu = document.getElementById('userMenu');
+        const userAvatar = document.getElementById('userAvatar');
+        const userName = document.getElementById('userName');
+        const dashboard = document.getElementById('dashboard');
+        const mainContent = document.getElementById('mainContent');
+        const dashboardUserName = document.getElementById('dashboardUserName');
+
+        // Enhanced Modal Functions
+        function openModal(modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            modal.style.display = 'flex';
+        }
+
+        function closeModal(modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        // Event Listeners for All Buttons
+        function setupEventListeners() {
+            // Modal open buttons
+            document.getElementById('openLogin').addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(loginModal);
+            });
+
+            document.getElementById('openRegister').addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(registerModal);
+            });
+
+            // Hero section buttons
+            document.getElementById('heroLogin').addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(loginModal);
+            });
+
+            document.getElementById('heroRegister').addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(registerModal);
+            });
+
+            document.getElementById('heroSecondary').addEventListener('click', (e) => {
+                e.preventDefault();
+                scrollToSection('secondary-school');
+                showSchoolContent('secondary');
+            });
+
+            // Footer buttons
+            document.getElementById('footerLogin').addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(loginModal);
+            });
+
+            document.getElementById('footerRegister').addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(registerModal);
+            });
+
+            // Apply Now buttons
+            document.getElementById('applyPrimaryBtn').addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(registerModal);
+            });
+
+            document.getElementById('applySecondaryBtn').addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(registerModal);
+                // Automatically select secondary student role
+                setTimeout(() => {
+                    const secondaryBtn = document.querySelector('.user-type-btn[data-role="student-secondary"]');
+                    if (secondaryBtn) secondaryBtn.click();
+                }, 100);
+            });
+
+            // School tabs
+            document.querySelectorAll('.school-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const target = this.dataset.school || this.dataset.program || this.dataset.admission;
+                    const tabType = this.dataset.school ? 'school' : this.dataset.program ? 'program' : 'admission';
+                    
+                    // Update active tab
+                    document.querySelectorAll('.school-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    if (tabType === 'school') {
+                        showSchoolContent(target);
+                    } else if (tabType === 'program') {
+                        showProgramContent(target);
+                    } else if (tabType === 'admission') {
+                        showAdmissionContent(target);
+                    }
+                });
+            });
+
+            // Subscribe button
+            document.getElementById('subscribeBtn').addEventListener('click', (e) => {
+                e.preventDefault();
+                const emailInput = document.querySelector('input[placeholder="Your email"]');
+                if (emailInput.value) {
+                    alert(`Thank you for subscribing with ${emailInput.value}! You will receive updates soon.`);
+                    emailInput.value = '';
+                } else {
+                    alert('Please enter your email address.');
+                }
+            });
+
+            // Modal close buttons
+            document.getElementById('closeLogin').addEventListener('click', () => closeModal(loginModal));
+            document.getElementById('closeRegister').addEventListener('click', () => closeModal(registerModal));
+            document.getElementById('closeForgot').addEventListener('click', () => closeModal(forgotPasswordModal));
+
+            // Switch between modals
+            document.getElementById('switchToRegister').addEventListener('click', (e) => {
+                e.preventDefault();
+                closeModal(loginModal);
+                setTimeout(() => openModal(registerModal), 300);
+            });
+
+            document.getElementById('switchToLogin').addEventListener('click', (e) => {
+                e.preventDefault();
+                closeModal(registerModal);
+                setTimeout(() => openModal(loginModal), 300);
+            });
+
+            // Forgot password
+            document.getElementById('forgotPassword').addEventListener('click', (e) => {
+                e.preventDefault();
+                closeModal(loginModal);
+                setTimeout(() => openModal(forgotPasswordModal), 300);
+            });
+
+            document.getElementById('backToLogin').addEventListener('click', (e) => {
+                e.preventDefault();
+                closeModal(forgotPasswordModal);
+                setTimeout(() => openModal(loginModal), 300);
+            });
+
+            // Terms and Privacy links
+            document.getElementById('termsLink').addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Terms & Conditions document will be displayed here.');
+            });
+
+            document.getElementById('privacyLink').addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Privacy Policy document will be displayed here.');
+            });
+
+            // Close modals when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === loginModal) closeModal(loginModal);
+                if (e.target === registerModal) closeModal(registerModal);
+                if (e.target === forgotPasswordModal) closeModal(forgotPasswordModal);
+            });
+
+            // User Type Selection
+            const userTypeButtons = document.querySelectorAll('.user-type-btn');
+            const selectedRoleInput = document.getElementById('selectedRole');
+            const primaryStudentFields = document.getElementById('primaryStudentFields');
+            const secondaryStudentFields = document.getElementById('secondaryStudentFields');
+            const parentFields = document.getElementById('parentFields');
+            const childSchoolSelect = document.getElementById('childSchool');
+            const childGradeSelect = document.getElementById('childGrade');
+
+            // Child school level change handler
+            childSchoolSelect?.addEventListener('change', function() {
+                const schoolLevel = this.value;
+                childGradeSelect.innerHTML = '<option value="">Select grade</option>';
+                
+                if (schoolLevel === 'primary') {
+                    const primaryGrades = ['P1', 'P2', 'P3', 'P4', 'P5', 'P6'];
+                    primaryGrades.forEach(grade => {
+                        const option = document.createElement('option');
+                        option.value = grade.toLowerCase();
+                        option.textContent = grade;
+                        childGradeSelect.appendChild(option);
+                    });
+                } else if (schoolLevel === 'secondary') {
+                    const secondaryGrades = ['Form 1', 'Form 2', 'Form 3', 'Form 4', 'Form 5', 'Form 6'];
+                    secondaryGrades.forEach(grade => {
+                        const option = document.createElement('option');
+                        option.value = grade.toLowerCase().replace(' ', '');
+                        option.textContent = grade;
+                        childGradeSelect.appendChild(option);
+                    });
+                }
+            });
+
+            userTypeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    userTypeButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const role = button.dataset.role;
+                    selectedRoleInput.value = role;
+                    
+                    // Show/hide appropriate fields
+                    primaryStudentFields.style.display = 'none';
+                    secondaryStudentFields.style.display = 'none';
+                    parentFields.style.display = 'none';
+                    
+                    if (role === 'student-primary') {
+                        primaryStudentFields.style.display = 'block';
+                    } else if (role === 'student-secondary') {
+                        secondaryStudentFields.style.display = 'block';
+                    } else if (role === 'parent') {
+                        parentFields.style.display = 'block';
+                    }
+                });
+            });
+
+            // Dashboard navigation
+            document.querySelectorAll('.dashboard-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = link.dataset.target;
+                    showSection(target);
+                    
+                    // Update active state
+                    document.querySelectorAll('.dashboard-link').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+
+            // Back to website from dashboard
+            document.getElementById('backToWebsite').addEventListener('click', () => {
+                dashboard.style.display = 'none';
+                mainContent.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Logout button
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                if (confirm('Are you sure you want to logout?')) {
+                    logoutUser();
+                }
+            });
+
+            // Form submissions
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
+            document.getElementById('registerForm').addEventListener('submit', handleRegister);
+            document.getElementById('forgotPasswordForm').addEventListener('submit', handleForgotPassword);
+            document.getElementById('contactForm').addEventListener('submit', handleContactForm);
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('.nav-link, .footer-link').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        scrollToSection(href.substring(1));
+                    }
+                });
+            });
+
+            // Animated statistics counter
+            animateStatistics();
+        }
+
+        // School content switching
+        function showSchoolContent(school) {
+            document.querySelectorAll('.school-content').forEach(content => {
+                content.style.display = 'none';
+                content.classList.remove('active');
+            });
+            document.getElementById(`${school}-school`).style.display = 'block';
+            document.getElementById(`${school}-school`).classList.add('active');
+        }
+
+        function showProgramContent(program) {
+            document.querySelectorAll('.programs-content').forEach(content => {
+                content.style.display = 'none';
+                content.classList.remove('active');
+            });
+            document.getElementById(`${program}-programs`).style.display = 'block';
+            document.getElementById(`${program}-programs`).classList.add('active');
+        }
+
+        function showAdmissionContent(admission) {
+            document.querySelectorAll('.admissions-content').forEach(content => {
+                content.style.display = 'none';
+                content.classList.remove('active');
+            });
+            document.getElementById(`${admission}-admissions`).style.display = 'block';
+            document.getElementById(`${admission}-admissions`).classList.add('active');
+        }
+
+        function showSecondaryPrograms() {
+            const secondaryTab = document.querySelector('.school-tab[data-program="secondary"]');
+            if (secondaryTab) {
+                secondaryTab.click();
+                scrollToSection('programs');
+            }
+        }
+
+        // Animated Statistics
+        function animateStatistics() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = parseInt(counter.getAttribute('data-target') || counter.innerText);
+                    const count = parseInt(counter.innerText);
+                    const increment = Math.ceil(target / speed);
+                    
+                    if (count < target) {
+                        counter.innerText = count + increment;
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                const currentValue = parseInt(counter.innerText);
+                counter.setAttribute('data-target', currentValue);
+                counter.innerText = '0';
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCount();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                
+                observer.observe(counter);
+            });
+        }
+
+        // Form Handlers
+        function handleLogin(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const role = document.getElementById('userRole').value;
+            
+            const user = users.find(u => u.email === email && u.password === password && u.role === role);
+            
+            if (user) {
+                loginUser(user);
+                closeModal(loginModal);
+                alert(`Welcome back, ${user.firstName}!`);
+            } else {
+                alert('Invalid email, password, or role. Please try again.');
+            }
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const role = document.getElementById('selectedRole').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (users.find(user => user.email === email)) {
+                alert('An account with this email already exists!');
+                return;
+            }
+            
+            const newUser = {
+                id: Date.now(),
+                firstName,
+                lastName,
+                email,
+                phone,
+                password,
+                role,
+                createdAt: new Date().toISOString(),
+                studentId: role.includes('student') ? 
+                    (role === 'student-primary' ? document.getElementById('studentIdPrimary').value : 
+                     document.getElementById('studentIdSecondary').value) : null,
+                studentGrade: role === 'student-primary' ? document.getElementById('studentGradePrimary').value : 
+                            role === 'student-secondary' ? document.getElementById('studentGradeSecondary').value : null,
+                studentStream: role === 'student-secondary' ? document.getElementById('studentStream').value : null,
+                childName: role === 'parent' ? document.getElementById('childName').value : null,
+                childSchool: role === 'parent' ? document.getElementById('childSchool').value : null,
+                childGrade: role === 'parent' ? document.getElementById('childGrade').value : null
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('gsmukura_users', JSON.stringify(users));
+            
+            loginUser(newUser);
+            closeModal(registerModal);
+            alert('Registration successful! Welcome to GS Mukura.');
+        }
+
+        function handleForgotPassword(e) {
+            e.preventDefault();
+            const email = document.getElementById('resetEmail').value;
+            
+            const userExists = users.find(u => u.email === email);
+            
+            if (userExists) {
+                alert(`Password reset link has been sent to ${email}. Please check your email.`);
+                closeModal(forgotPasswordModal);
+            } else {
+                alert('No account found with this email address.');
+            }
+        }
+
+        function handleContactForm(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const schoolLevel = document.getElementById('schoolLevel').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                alert(`Thank you ${name}! Your message about ${schoolLevel} has been received. We will contact you at ${email} soon.`);
+                e.target.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        }
+
+        // User Management
+        function loginUser(user) {
+            currentUser = user;
+            localStorage.setItem('gsmukura_current_user', JSON.stringify(user));
+            updateUIAfterLogin();
+        }
+
+        function updateUIAfterLogin() {
+            authButtons.style.display = 'none';
+            userMenu.style.display = 'flex';
+            
+            const initials = (currentUser.firstName[0] + currentUser.lastName[0]).toUpperCase();
+            userAvatar.textContent = initials;
+            userName.textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+            dashboardUserName.textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+            
+            dashboard.style.display = 'block';
+            mainContent.style.display = 'none';
+            
+            updateDashboardByRole();
+        }
+
+        function updateDashboardByRole() {
+            const role = currentUser.role;
+            const dashboardTitle = document.querySelector('#dashboard h2');
+            
+            let schoolLevel = '';
+            if (role === 'student-primary') schoolLevel = 'Primary School';
+            if (role === 'student-secondary') schoolLevel = 'Secondary School';
+            
+            switch(role) {
+                case 'parent':
+                    dashboardTitle.textContent = `Parent Portal - Welcome ${currentUser.firstName}`;
+                    loadParentDashboard();
+                    break;
+                case 'student-primary':
+                    dashboardTitle.textContent = `${schoolLevel} Student Portal - Welcome ${currentUser.firstName}`;
+                    loadPrimaryStudentDashboard();
+                    break;
+                case 'student-secondary':
+                    dashboardTitle.textContent = `${schoolLevel} Student Portal - Welcome ${currentUser.firstName}`;
+                    loadSecondaryStudentDashboard();
+                    break;
+                case 'teacher':
+                    dashboardTitle.textContent = `Teacher Portal - Welcome ${currentUser.firstName}`;
+                    loadTeacherDashboard();
+                    break;
+                case 'admin':
+                    dashboardTitle.textContent = `Administrator Dashboard - Welcome ${currentUser.firstName}`;
+                    loadAdminDashboard();
+                    break;
+            }
+        }
+
+        function loadParentDashboard() {
+            document.getElementById('profileContent').innerHTML = `
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h3>Personal Information</h3>
+                        <p><strong>Name:</strong> ${currentUser.firstName} ${currentUser.lastName}</p>
+                        <p><strong>Email:</strong> ${currentUser.email}</p>
+                        <p><strong>Phone:</strong> ${currentUser.phone}</p>
+                        <p><strong>Role:</strong> Parent/Guardian</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Child Information</h3>
+                        <p><strong>Child's Name:</strong> ${currentUser.childName || 'Not specified'}</p>
+                        <p><strong>School Level:</strong> ${currentUser.childSchool ? currentUser.childSchool.charAt(0).toUpperCase() + currentUser.childSchool.slice(1) : 'Not specified'}</p>
+                        <p><strong>Grade/Form:</strong> ${currentUser.childGrade ? currentUser.childGrade.toUpperCase() : 'Not specified'}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadPrimaryStudentDashboard() {
+            document.getElementById('profileContent').innerHTML = `
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h3>Primary Student Information</h3>
+                        <p><strong>Name:</strong> ${currentUser.firstName} ${currentUser.lastName}</p>
+                        <p><strong>Student ID:</strong> ${currentUser.studentId || 'GSM-P' + currentUser.id.toString().slice(-5)}</p>
+                        <p><strong>Grade:</strong> ${currentUser.studentGrade ? 'Primary ' + currentUser.studentGrade.charAt(1).toUpperCase() : 'Not specified'}</p>
+                        <p><strong>Class Teacher:</strong> Mrs. Uwimana</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadSecondaryStudentDashboard() {
+            document.getElementById('profileContent').innerHTML = `
+                <div class="info-cards">
+                    <div class="info-card secondary-card">
+                        <h3>Secondary Student Information</h3>
+                        <p><strong>Name:</strong> ${currentUser.firstName} ${currentUser.lastName}</p>
+                        <p><strong>Student ID:</strong> ${currentUser.studentId || 'GSM-S' + currentUser.id.toString().slice(-5)}</p>
+                        <p><strong>Form:</strong> ${currentUser.studentGrade ? 'Form ' + currentUser.studentGrade.charAt(1).toUpperCase() : 'Not specified'}</p>
+                        <p><strong>Stream:</strong> ${currentUser.studentStream ? currentUser.studentStream.charAt(0).toUpperCase() + currentUser.studentStream.slice(1) : 'Not specified'}</p>
+                        <p><strong>Head of Secondary:</strong> Mr. Ndayisaba</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function logoutUser() {
+            currentUser = null;
+            localStorage.removeItem('gsmukura_current_user');
+            
+            authButtons.style.display = 'flex';
+            userMenu.style.display = 'none';
+            dashboard.style.display = 'none';
+            mainContent.style.display = 'block';
+            
+            document.getElementById('loginForm').reset();
+            document.getElementById('registerForm').reset();
+        }
+
+        // Helper Functions
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu
+                if (window.innerWidth <= 768) {
+                    const mainNav = document.getElementById('mainNav');
+                    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.dashboard-content').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function checkLoginStatus() {
+            const savedUser = localStorage.getItem('gsmukura_current_user');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                updateUIAfterLogin();
+            }
+        }
+
+        // Initialize
+        function initialize() {
+            setupEventListeners();
+            checkLoginStatus();
+            
+            // Set current year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Demo users if none exist
+            if (users.length === 0) {
+                const demoUsers = [
+                    {
+                        id: 1,
+                        firstName: "John",
+                        lastName: "Doe",
+                        email: "parent@example.com",
+                        phone: "0788123456",
+                        password: "password123",
+                        role: "parent",
+                        childName: "Jane Doe",
+                        childSchool: "primary",
+                        childGrade: "p4"
+                    },
+                    {
+                        id: 2,
+                        firstName: "Jane",
+                        lastName: "Student",
+                        email: "primary@example.com",
+                        phone: "0788765432",
+                        password: "password123",
+                        role: "student-primary",
+                        studentId: "GSM-P2024001",
+                        studentGrade: "p5"
+                    },
+                    {
+                        id: 3,
+                        firstName: "Robert",
+                        lastName: "Smith",
+                        email: "secondary@example.com",
+                        phone: "0788998877",
+                        password: "password123",
+                        role: "student-secondary",
+                        studentId: "GSM-S2024001",
+                        studentGrade: "s4",
+                        studentStream: "sciences"
+                    },
+                    {
+                        id: 4,
+                        firstName: "Marie",
+                        lastName: "Uwimana",
+                        email: "teacher@example.com",
+                        phone: "0788112233",
+                        password: "password123",
+                        role: "teacher"
+                    }
+                ];
+                
+                localStorage.setItem('gsmukura_users', JSON.stringify(demoUsers));
+            }
+            
+            // Add animation to elements on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.feature-card, .program-card, .staff-card, .photo-item, .innovation-card, .info-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        }
+
+        // Start everything when page loads
+        window.addEventListener('DOMContentLoaded', initialize);
+         
+        
+    </script>
+</body>
 </html>
